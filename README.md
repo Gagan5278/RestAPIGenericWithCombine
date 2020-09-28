@@ -28,12 +28,12 @@ A demo to demonstrate how to user Combine framework for rest CURD operations.
 
 Either we can create an extension for  EndPoint ass below 
 
-extension EndPoint where K == FormedRequestKind.Public, D == UserModel {
+    extension EndPoint where K == FormedRequestKind.Public, D == UserModel {
     static var featuredItems: Self {
         EndPoint(path: "/api/users?page=2",  data: nil)
+    } 
     }
-
-}
+    
 
 ## OR
 
