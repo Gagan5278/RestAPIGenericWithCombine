@@ -39,6 +39,7 @@ extension EndPoint {
     }
 }
 
+//MARK:- HTTP METHODS
 enum HTTPMethod: String {
     case put = "PUT"
     case post = "POST"
