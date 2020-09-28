@@ -34,6 +34,10 @@ Either we can create an extension for  EndPoint ass below
     } 
     }
     
+ And in your call method
+ 
+            self.cancellable = Networking.makeRequest(for: EndPoint.featuredItems, using:  nil, method: .get).sink(receiveCompletion: {print($0)}) { (model) in
+    
 
 ## OR
 
