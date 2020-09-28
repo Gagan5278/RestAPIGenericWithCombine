@@ -8,15 +8,15 @@
 import Foundation
 
 protocol PrepareRequest {
-    associatedtype RequestedItem
-    static func prepareRequest(request: inout URLRequest, with data: RequestedItem)
+    associatedtype RequestedHeaderItem
+    static func prepareRequest(request: inout URLRequest, with data: RequestedHeaderItem)
 }
 
 enum FormedRequestKind {
     //when there is no auth required for access database
     enum Public: PrepareRequest {
-        typealias RequestedItem = Any?
-        static func prepareRequest(request: inout URLRequest, with data: RequestedItem) {
+        typealias RequestedHeaderItem = Any?
+        static func prepareRequest(request: inout URLRequest, with data: RequestedHeaderItem) {
             //1. set cache policy here
             request.cachePolicy = .reloadIgnoringLocalCacheData
             //2. Add supplied HTTPHeaderField
@@ -28,8 +28,8 @@ enum FormedRequestKind {
     
     //When auth token required for accessing database
     enum Private: PrepareRequest{
-        typealias RequestedItem = Any?
-        static func prepareRequest(request: inout URLRequest, with data: RequestedItem) {
+        typealias RequestedHeaderItem = Any?
+        static func prepareRequest(request: inout URLRequest, with data: RequestedHeaderItem) {
             guard let accessToken  = AccessToken.acceessToken else { return }
             //1. Add access token in header
             request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")

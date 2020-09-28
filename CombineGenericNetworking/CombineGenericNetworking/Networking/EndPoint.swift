@@ -19,7 +19,7 @@ struct EndPoint<K: PrepareRequest, D: Decodable> {
 }
 
 extension EndPoint {
-    func makeRequest(for data :K.RequestedItem, with httpMehod: HTTPMethod) -> URLRequest?  {
+    func makeRequest(for data :K.RequestedHeaderItem, with httpMehod: HTTPMethod) -> URLRequest?  {
         var urlComponent = URLComponents()
         urlComponent.path = path
         urlComponent.scheme = "https"

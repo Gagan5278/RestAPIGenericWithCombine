@@ -11,7 +11,7 @@ import Combine
 struct Networking {
     
     //MARK:- Make URL request call for GET, POST, PUT, DELETE, PATCH
-    static func makeRequest<K, R>(for endPoint: EndPoint<K, R>, with decoder: JSONDecoder = .init(), using data : K.RequestedItem, method: HTTPMethod) -> AnyPublisher<R?, CustomError> {
+    static func makeRequest<K, R>(for endPoint: EndPoint<K, R>, with decoder: JSONDecoder = .init(), using data : K.RequestedHeaderItem, method: HTTPMethod) -> AnyPublisher<R?, CustomError> {
         //1. Check for request
         guard let request = endPoint.makeRequest(for: data, with: method) else {
             return Fail(error: CustomError.invalidRequest).eraseToAnyPublisher()
