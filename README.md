@@ -14,7 +14,7 @@ A demo to demonstrate how to user Combine framework for rest CURD operations.
         urlComponent.host = "reqres.in". //EDIT HERE
  
  
- EndPoint init accept *path* and *body* for ongoing reqeuest. Pass nil if there is no body reequired for request.
+ EndPoint init accept *path* and *body* for ongoing reqeuest. Pass nil if there is no body required for request.
  
  *K.RequestedHeaderItem* accepts any but we must pass as Dictionary<String, String> for setting Request Headers.
  
